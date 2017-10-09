@@ -75,7 +75,7 @@ class l_layer_neural_network:
         return AL
 
     def compute_cost(self,AL):
-        cost = -1*(np.sum(np.multiply(self.Y,np.log(AL)) + np.multiply(1-self.Y,np.log(1-AL))))/self.m
+        cost = -1*(np.sum(np.multiply(self.Y,np.log(AL+1e-5)) + np.multiply(1-self.Y,np.log(1-AL+1e-5))))/self.m
         cost = np.squeeze(cost)
         assert(cost.shape == ())
         return cost
